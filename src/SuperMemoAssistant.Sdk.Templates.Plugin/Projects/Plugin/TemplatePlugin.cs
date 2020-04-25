@@ -29,12 +29,14 @@
 
 
 
-using SuperMemoAssistant.Services.Sentry;
-
 namespace $finalSafeProjectName$
 {
+  using System.Diagnostics.CodeAnalysis;
+  using SuperMemoAssistant.Services.Sentry;
+
   // ReSharper disable once UnusedMember.Global
   // ReSharper disable once ClassNeverInstantiated.Global
+  [SuppressMessage("Microsoft.Naming", "CA1724:TypeNamesShouldNotMatchNamespaces")]
   public class $finalPluginName$ : SentrySMAPluginBase<$finalPluginName$>
   {
     #region Constructors
@@ -78,7 +80,7 @@ namespace $finalSafeProjectName$
       // - Ask for help on our Discord server https://discord.gg/vUQhqCT
 
       // Uncomment to register an event handler for element changed events
-      // Svc.SM.UI.ElementWdw.OnElementChanged += new ActionProxy<SMDisplayedElementChangedArgs>(OnElementChanged);
+      // Svc.SM.UI.ElementWdw.OnElementChanged += new ActionProxy<SMDisplayedElementChangedEventArgs>(OnElementChanged);
     }
     
     // Set HasSettings to true, and uncomment this method to add your custom logic for settings
@@ -96,7 +98,7 @@ namespace $finalSafeProjectName$
     
     // Uncomment to register an event handler for element changed events
     // [LogToErrorOnException]
-    // public void OnElementChanged(SMDisplayedElementChangedArgs e)
+    // public void OnElementChanged(SMDisplayedElementChangedEventArgs e)
     // {
     //   try
     //   {

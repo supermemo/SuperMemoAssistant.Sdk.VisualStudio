@@ -30,12 +30,12 @@
 
 
 
-using System.Collections.Generic;
-using System.IO;
-using System.Text.RegularExpressions;
-
-namespace SuperMemoAssistant.Sdk.VisualStudio.Utils
+namespace SuperMemoAssistant.Sdk.VisualStudio.Utils.Templates
 {
+  using System.Collections.Generic;
+  using System.IO;
+  using System.Text.RegularExpressions;
+
   public static class TemplateVariableUtils
   {
     #region Constants & Statics

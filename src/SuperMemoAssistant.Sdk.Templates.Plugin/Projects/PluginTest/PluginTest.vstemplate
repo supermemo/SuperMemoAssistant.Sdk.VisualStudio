@@ -23,7 +23,7 @@
     <Project File="ProjectTemplate.csproj"
              TargetFileName="$safeprojectname$.csproj"
              ReplaceParameters="true">
-      <ProjectItem>Class1.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Class1.cs</ProjectItem>
     </Project>
   </TemplateContent>
   <WizardExtension>

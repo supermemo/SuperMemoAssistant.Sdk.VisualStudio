@@ -30,16 +30,24 @@
 
 
 
-using System.Collections.Generic;
-using EnvDTE;
-using EnvDTE100;
-using EnvDTE80;
-
-namespace SuperMemoAssistant.Sdk.VisualStudio.Utils
+namespace SuperMemoAssistant.Sdk.VisualStudio.Utils.Templates
 {
+  using System.Collections.Generic;
+  using EnvDTE;
+  using EnvDTE100;
+  using EnvDTE80;
+
   public static partial class SolutionUtils
   {
     #region Methods
+
+    /// <summary>Gets the projects in a solution recursively.</summary>
+    /// <returns></returns>
+    public static IList<Project> GetProjects(this Solution solution)
+    {
+      // ReSharper disable once SuspiciousTypeConversion.Global
+      return ((Solution4)solution).GetProjects();
+    }
 
     /// <summary>Gets the projects in a solution recursively.</summary>
     /// <returns></returns>
@@ -75,6 +83,7 @@ namespace SuperMemoAssistant.Sdk.VisualStudio.Utils
       for (var i = 1; i <= solutionFolder.ProjectItems.Count; i++)
       {
         var subProject = solutionFolder.ProjectItems.Item(i).SubProject;
+
         if (subProject == null)
           continue;
 

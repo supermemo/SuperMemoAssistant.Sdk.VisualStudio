@@ -37,10 +37,11 @@ using EnvDTE;
 using EnvDTE100;
 using SuperMemoAssistant.Sdk.VisualStudio.Extensions;
 using SuperMemoAssistant.Sdk.VisualStudio.Properties;
-using SuperMemoAssistant.Sdk.VisualStudio.Utils;
 
 namespace SuperMemoAssistant.Sdk.VisualStudio.Models
 {
+  using Utils.Templates;
+
   /// <summary>Defines the components and files of a SMA solution</summary>
   public class SMASolution
   {

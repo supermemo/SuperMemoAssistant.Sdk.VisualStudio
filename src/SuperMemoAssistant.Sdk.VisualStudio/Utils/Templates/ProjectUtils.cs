@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SuperMemoAssistant.Sdk.VisualStudio.Models;
-
-namespace SuperMemoAssistant.Sdk.VisualStudio.Utils
+﻿namespace SuperMemoAssistant.Sdk.VisualStudio.Utils.Templates
 {
+  using Models;
+
   public static class ProjectUtils
   {
     public static void InstallTemplate(this SMAProjectInstall proj)

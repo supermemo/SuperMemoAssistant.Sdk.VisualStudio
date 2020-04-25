@@ -21,6 +21,12 @@ namespace SuperMemoAssistant.Sdk.VisualStudio.Extensions
         throw new NullReferenceException(errMsg);
     }
 
+    public static void ThrowIfNotNull(this object obj, string errMsg)
+    {
+      if (obj != null)
+        throw new InvalidOperationException(errMsg);
+    }
+
     public static void ThrowIfMissing(this DirectoryInfo dir, string errMsg)
     {
       if (dir.Exists == false)

@@ -10,6 +10,9 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>SuperMemoAssistant.Sdk.VisualStudioPackage.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Label="PackageInfo">
+    <RepositoryUrl>https://github.com/supermemo/SuperMemoAssistant.Sdk.VisualStudio</RepositoryUrl>
+  </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -34,25 +37,17 @@
     <StartArguments>/rootsuffix Exp</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="SMASdkVSPackage.MSBuild.Properties.cs" />
+    <Compile Include="SMASdkVSPackage.ILogger.cs" />
+    <Compile Include="SMASdkVSPackage.BuildEvents.cs" />
+    <Compile Include="SMASdkVSPackage.IVsSolutionEvents.cs" />
     <Compile Include="Extensions\ExceptionEx.cs" />
     <Compile Include="Extensions\IEnumerableEx.cs" />
+    <Compile Include="Extensions\IVsHierarchyEx.cs" />
     <Compile Include="Extensions\JsonEx.cs" />
     <Compile Include="Extensions\ReplacementDictEx.cs" />
     <Compile Include="Models\NetCoreGlobal.cs" />
@@ -64,12 +59,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SuperMemoAssistant.Sdk.VisualStudioPackage.cs" />
+    <Compile Include="SMASdkVSPackage.IVsUpdateSolutionEvents.cs" />
+    <Compile Include="SMASdkVSPackage.cs" />
     <Compile Include="Extensions\DirectoryInfoEx.cs" />
-    <Compile Include="Utils\ProjectUtils.cs" />
-    <Compile Include="Utils\SolutionUtils.VS.cs" />
-    <Compile Include="Utils\SolutionUtils.SMA.cs" />
-    <Compile Include="Utils\TemplateVariableUtils.cs" />
+    <Compile Include="Utils\Templates\ProjectUtils.cs" />
+    <Compile Include="Utils\Templates\SolutionUtils.VS.cs" />
+    <Compile Include="Utils\Templates\SolutionUtils.SMA.cs" />
+    <Compile Include="Utils\Templates\TemplateVariableUtils.cs" />
+    <Compile Include="Utils\VS\ReusableLogger.cs" />
+    <Compile Include="Utils\VS\VSOutputWindow.cs" />
     <Compile Include="Wizards\PluginTemplateWizard.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +85,12 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.Build">
+      <Version>16.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Build.Framework">
+      <Version>16.5.0</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.SDK" Version="16.0.205" ExcludeAssets="runtime">
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -120,6 +124,7 @@
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

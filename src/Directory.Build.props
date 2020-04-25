@@ -1,34 +1,14 @@
-<Project>
-
-  <PropertyGroup Label="PackageInfo">
-    <Authors>$username$</Authors>
-    <Copyright>© $username$</Copyright>
-    <Company>$username$</Company>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageIcon>icon.png</PackageIcon>
-    <PackageIconUrl>https://github.com/supermemo/Documentation/raw/master/docs/sma/content/images/icons/robot.ico</PackageIconUrl>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl></RepositoryUrl>
-  </PropertyGroup>
-  
-  <PropertyGroup Label="Package Settings">
-    <PackageOutputPath Condition=" '$(PackageOutputPath)' == '' ">$(SolutionDir)releases\</PackageOutputPath>
-    <IncludeSymbols Condition=" '$(IncludeSymbols)' == '' ">false</IncludeSymbols>
-    <SymbolPackageFormat Condition=" '$(SymbolPackageFormat)' == '' ">snupkg</SymbolPackageFormat>
-  </PropertyGroup>
-  
-  <ItemGroup Label="Package content (Default)">
-    <None Include="$(SolutionDir)assets\images\icons\robot-128.png" Visible="False" Pack="true" PackagePath="\icon.png" />
-  </ItemGroup>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   
   <PropertyGroup Label="Build">
     <TargetFramework>net472</TargetFramework>
     <LangVersion>latest</LangVersion>
     <ErrorReport>prompt</ErrorReport>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <NoWarn>67;NU1605;NU5105;$(NoWarn)</NoWarn>
+    <NoWarn>67;NU1605;$(NoWarn)</NoWarn>
     <CodeAnalysisRuleSet>$(SolutionDir)src\CodeStyle.ruleset</CodeAnalysisRuleSet>
+    <BuildExtraFolder>$(SolutionDir)src\Build\</BuildExtraFolder>
+    <Configurations>Debug-InProd;Debug;Release</Configurations>
   </PropertyGroup>
   
   <PropertyGroup Label="Build (Paths)">
@@ -44,14 +24,18 @@
     <OutDir>$(OutputPath)$(ProjectName)\$(Platform)\</OutDir>
   </PropertyGroup>
   
-  <PropertyGroup Label="Build (Debug)" Condition=" $(Configuration.ToLower().Contains('debug')) ">
+  <PropertyGroup Label="Build (Debug*)" Condition=" $(Configuration.ToLower().StartsWith('debug')) ">
     <DebugSymbols>true</DebugSymbols>
     <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   
-  <PropertyGroup Label="Build (Release)" Condition=" $(Configuration.ToLower().Contains('release')) ">
+  <PropertyGroup Label="Build (Debug-InProd)" Condition=" '$(Configuration.ToLower())' == 'debug-inprod' ">
+    <DefineConstants>DEBUG_IN_PROD;$(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+  
+  <PropertyGroup Label="Build (Release)" Condition=" '$(Configuration.ToLower())' == 'release' ">
     <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>

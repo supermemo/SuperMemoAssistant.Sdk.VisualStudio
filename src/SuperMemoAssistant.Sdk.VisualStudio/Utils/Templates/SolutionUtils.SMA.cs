@@ -30,24 +30,26 @@
 
 
 
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
-using System.Linq;
-using System.Xml.Linq;
-using EnvDTE;
-using EnvDTE100;
-using EnvDTE80;
-using Newtonsoft.Json;
-using SuperMemoAssistant.Sdk.VisualStudio.Extensions;
-using SuperMemoAssistant.Sdk.VisualStudio.Models;
-using SuperMemoAssistant.Sdk.VisualStudio.Properties;
+
 
 // ReSharper disable SuspiciousTypeConversion.Global
 
-namespace SuperMemoAssistant.Sdk.VisualStudio.Utils
+namespace SuperMemoAssistant.Sdk.VisualStudio.Utils.Templates
 {
+  using System;
+  using System.Collections.Generic;
+  using System.Diagnostics.CodeAnalysis;
+  using System.IO;
+  using System.Linq;
+  using System.Xml.Linq;
+  using EnvDTE;
+  using EnvDTE100;
+  using EnvDTE80;
+  using Extensions;
+  using Models;
+  using Newtonsoft.Json;
+  using Properties;
+
   [SuppressMessage("Usage", "VSTHRD010:Invoke single-threaded types on Main thread", Justification = "<Pending>")]
   public static partial class SolutionUtils
   {

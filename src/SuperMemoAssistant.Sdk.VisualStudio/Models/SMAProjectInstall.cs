@@ -33,10 +33,11 @@
 using System.Collections.Generic;
 using System.IO;
 using SuperMemoAssistant.Sdk.VisualStudio.Extensions;
-using SuperMemoAssistant.Sdk.VisualStudio.Utils;
 
 namespace SuperMemoAssistant.Sdk.VisualStudio.Models
 {
+  using Utils.Templates;
+
   public class SMAProjectInstall
   {
     #region Constructors

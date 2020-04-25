@@ -41,10 +41,11 @@ using Microsoft.VisualStudio.TemplateWizard;
 using SuperMemoAssistant.Sdk.VisualStudio.Extensions;
 using SuperMemoAssistant.Sdk.VisualStudio.Models;
 using SuperMemoAssistant.Sdk.VisualStudio.Properties;
-using SuperMemoAssistant.Sdk.VisualStudio.Utils;
 
 namespace SuperMemoAssistant.Sdk.VisualStudio.Wizards
 {
+  using Utils.Templates;
+
   public class PluginTemplateWizard : IWizard
   {
     #region Constants & Statics
@@ -155,6 +156,8 @@ namespace SuperMemoAssistant.Sdk.VisualStudio.Wizards
     /// <inheritdoc />
     public void RunFinished()
     {
+      ThreadHelper.ThrowIfNotOnUIThread();
+
       if (_runKind == WizardRunKind.AsMultiProject)
       {
         _smaSolution.LoadProjects();
@@ -164,6 +167,11 @@ namespace SuperMemoAssistant.Sdk.VisualStudio.Wizards
           _replacementsDict, _templateRoot,
           ("Plugin", "Plugins", string.Empty),
           ("PluginTest", "Tests", ".Tests"));
+
+        var solCfgs = _smaSolution.VSSolution.SolutionBuild.SolutionConfigurations;
+        solCfgs.Add("1. Alpha (Debug)", "Debug", false);
+        solCfgs.Add("2. Beta (Release)", "Release", false);
+        solCfgs.Add("3. Stable (Release)", "Release", false);
       }
 
       //if (_currentProject == null)

@@ -13,8 +13,13 @@
   </TemplateData>
   <TemplateContent>
     <Project File="Solution.csproj">
+      <ProjectItem>Content\.githooks</ProjectItem>
       <ProjectItem>Content\nuget.config</ProjectItem>
+      <ProjectItem>Content\.githooks-src\commit-msg</ProjectItem>
+      <ProjectItem>Content\.githooks-src\commit-msg.ps1</ProjectItem>
+      <ProjectItem>Content\releases\empty</ProjectItem>
       <ProjectItem>Content\src\.editorconfig</ProjectItem>
+      <ProjectItem>Content\src\CodeStyle.ruleset</ProjectItem>
       <ProjectItem>Content\src\Directory.Build.props</ProjectItem>
       <ProjectItem>Content\src\Directory.Build.targets</ProjectItem>
       <ProjectItem>Content\src\global.json</ProjectItem>
