@@ -95,6 +95,7 @@
     <ItemGroup Label="Source files to copy">
       <SrcFiles Include="$(SolutionDir)src\.editorconfig" />
       <SrcFiles Include="$(SolutionDir)src\CodeStyle.ruleset" />
+      <SrcFiles Include="$(SolutionDir)src\global.json" />
       <SrcTestsFiles Include="$(SolutionDir)src\Tests\Directory.Build.targets" />
     </ItemGroup>
     <Copy SourceFiles="@(SrcFiles)" DestinationFolder="$(ProjectDir)Solution\Content\src\" SkipUnchangedFiles="true" />
