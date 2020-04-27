@@ -83,7 +83,13 @@ namespace SuperMemoAssistant.Sdk.VisualStudio.Models
       SrcDirectory = new DirectoryInfo(Path.Combine(replacementDict.SolutionDirectory(), "src"));
 
       solutionRootPath.EnsureExists();
-      templateSolutionDir.CopyFolderRecursive(solutionRootPath, replacementDict.ReplaceVariables);
+      templateSolutionDir.CopyFolderRecursive(
+        solutionRootPath,
+        replacementDict.ReplaceVariables,
+        fi => fi.Name.EndsWith("SuperMemoAssistant.sln.DotSettings")
+          ? fi.Name
+          : replacementDict["$safeprojectname$.sln.DotSettings"]
+      );
 
       SrcDirectory.EnsureExists();
       VSSolution = solution;

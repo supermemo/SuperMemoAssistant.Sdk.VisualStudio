@@ -63,6 +63,7 @@
     <None Include="Projects\PluginTest\ProjectTemplate.csproj" />
     <None Include="Projects\Plugin\ProjectTemplate.csproj" />
     <None Include="Solution\Content\nuget.config" />
+    <None Include="Solution\Content\Plugin.sln.DotSettings" />
     <None Include="Solution\Content\src\Directory.Build.props" />
     <None Include="Solution\Content\src\Directory.Build.targets" />
     <None Include="Solution\Content\src\global.json" />

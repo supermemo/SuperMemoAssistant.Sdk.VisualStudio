@@ -46,13 +46,22 @@ namespace SuperMemoAssistant.Sdk.VisualStudio.Extensions
         dir.Create();
     }
 
-    public static void CopyFolderRecursive(this DirectoryInfo srcDir, DirectoryInfo destDir, Func<FileInfo, string> processFile = null)
+    public static void CopyFolderRecursive(
+      this DirectoryInfo srcDir,
+      DirectoryInfo destDir,
+      Func<FileInfo, string> processFile = null,
+      Func<FileInfo, string> renameFile = null)
     {
       destDir.EnsureExists();
 
       foreach (var srcFile in srcDir.GetFiles())
       {
-        var destFile = Path.Combine(destDir.FullName, srcFile.Name);
+        string destFileName = srcFile.Name;
+
+        if (renameFile != null)
+          destFileName = renameFile.Invoke(srcFile);
+
+        var destFile = Path.Combine(destDir.FullName, destFileName);
 
         if (processFile == null)
           srcFile.CopyTo(destFile, true);

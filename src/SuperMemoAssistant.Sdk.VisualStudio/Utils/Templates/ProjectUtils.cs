@@ -4,19 +4,6 @@
 
   public static class ProjectUtils
   {
-    public static void InstallTemplate(this SMAProjectInstall proj)
-    {
-
-    }
-    
-    public static void DeleteOriginalFolder(this SMAProjectInstall proj)
-    {
-      void DoDeleteOriginalFolder(SMAProjectInstall proj)
-      {
-
-      }
-    }
-    
     public static string GetPluginName(string projectName)
     {
       var idx = projectName.LastIndexOf('.') + 1;
