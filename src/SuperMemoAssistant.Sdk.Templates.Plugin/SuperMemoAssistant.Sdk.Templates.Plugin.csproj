@@ -62,6 +62,9 @@
   <ItemGroup>
     <None Include="Projects\PluginTest\ProjectTemplate.csproj" />
     <None Include="Projects\Plugin\ProjectTemplate.csproj" />
+    <None Include="Solution\Content\.githooks" />
+    <None Include="Solution\Content\.githooks-src\commit-msg" />
+    <None Include="Solution\Content\.githooks-src\commit-msg.ps1" />
     <None Include="Solution\Content\nuget.config" />
     <None Include="Solution\Content\Plugin.sln.DotSettings" />
     <None Include="Solution\Content\src\Directory.Build.props" />

@@ -37,12 +37,12 @@ namespace $finalSafeProjectName$
   // ReSharper disable once UnusedMember.Global
   // ReSharper disable once ClassNeverInstantiated.Global
   [SuppressMessage("Microsoft.Naming", "CA1724:TypeNamesShouldNotMatchNamespaces")]
-  public class $finalPluginName$ : SentrySMAPluginBase<$finalPluginName$>
+  public class $finalPluginName$Plugin : SentrySMAPluginBase<$finalPluginName$Plugin>
   {
     #region Constructors
 
     /// <inheritdoc />
-    public $finalPluginName$() : base("$sentryDsn$") { }
+    public $finalPluginName$Plugin() : base("$sentryDsn$") { }
 
     #endregion
 
@@ -79,7 +79,7 @@ namespace $finalSafeProjectName$
       // - Browse through our plugins' source code https://github.com/supermemo/
       // - Ask for help on our Discord server https://discord.gg/vUQhqCT
 
-      // Uncomment to register an event handler for element changed events
+      // Uncomment to register an event handler which will be notified when the displayed element changes
       // Svc.SM.UI.ElementWdw.OnElementChanged += new ActionProxy<SMDisplayedElementChangedEventArgs>(OnElementChanged);
     }
     

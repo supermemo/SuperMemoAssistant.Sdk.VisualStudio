@@ -14,7 +14,7 @@
   <TemplateContent>
     <Project File="Solution.csproj">
       <ProjectItem>Content\.githooks</ProjectItem>
-      <ProjectItem>Content\nuget.config</ProjectItem>
+      <ProjectItem>Content\nuget.config</ProjectItem> 
       <ProjectItem>Content\Plugin.sln.DotSettings</ProjectItem>
       <ProjectItem>Content\.githooks-src\commit-msg</ProjectItem>
       <ProjectItem>Content\.githooks-src\commit-msg.ps1</ProjectItem>
