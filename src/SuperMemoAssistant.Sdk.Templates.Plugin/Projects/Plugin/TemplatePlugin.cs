@@ -65,7 +65,7 @@ namespace $finalSafeProjectName$
     #region Methods Impl
 
     /// <inheritdoc />
-    protected override void PluginInit()
+    protected override void OnSMStarted(bool wasSMAlreadyStarted)
     {
       // Insert code that needs to be run when the plugin is initialized.
       // Typical initialization code consists of:
@@ -81,6 +81,8 @@ namespace $finalSafeProjectName$
 
       // Uncomment to register an event handler which will be notified when the displayed element changes
       // Svc.SM.UI.ElementWdw.OnElementChanged += new ActionProxy<SMDisplayedElementChangedEventArgs>(OnElementChanged);
+
+      base.OnSMStarted(wasSMAlreadyStarted);
     }
     
     // Set HasSettings to true, and uncomment this method to add your custom logic for settings

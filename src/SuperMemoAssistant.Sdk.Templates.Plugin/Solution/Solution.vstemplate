@@ -34,7 +34,7 @@
     </Project>
   </TemplateContent>
   <WizardExtension>
-    <Assembly>SuperMemoAssistant.Sdk.VisualStudio, Version=1.0.1.0, Culture=Neutral, PublicKeyToken=2b76fb24de6c73be</Assembly>
+    <Assembly>SuperMemoAssistant.Sdk.VisualStudio, Version=1.0.2.0, Culture=Neutral, PublicKeyToken=2b76fb24de6c73be</Assembly>
     <FullClassName>SuperMemoAssistant.Sdk.VisualStudio.Wizards.PluginTemplateWizard</FullClassName>
   </WizardExtension>
 </VSTemplate>
