@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="SuperMemoAssistant.Sdk.VisualStudio.df6a1e15-7e8b-4525-bae0-3a4db68eefba" Version="1.0" Language="en-US" Publisher="SuperMemo.wiki" />
+        <Identity Id="SuperMemoAssistant.Sdk.VisualStudio.df6a1e15-7e8b-4525-bae0-3a4db68eefba" Version="1.0.1" Language="en-US" Publisher="SuperMemo.wiki" />
         <DisplayName>SuperMemoAssistant.Sdk.VisualStudio</DisplayName>
         <Description xml:space="preserve">Enhances Visual Studio for SuperMemo Assistant developers.</Description>
         <Icon>robot-128.png</Icon>
